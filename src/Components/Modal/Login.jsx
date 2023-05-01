@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import { useMutation } from 'react-query';
 import { API, setAuthToken } from '../../Config/Api';
 import { AlertError, AlertSuccess } from './AlertCollection';
+import Swal from 'sweetalert2';
 
 const Login = (props) => {
   const [userState, userDispatch] = useContext(UserContext);
@@ -56,8 +57,20 @@ const Login = (props) => {
       console.log(response.data.data)
 
       setMessage(<AlertSuccess message="Login Success" />);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Login success',
+        showConfirmButton: false,
+        timer: 1500
+      })
     } catch (err) {
       setMessage(<AlertError message="Failed To Login" />);
+      Swal.fire({
+        icon: 'error',
+        title: 'Incorect email or password ...',
+        text: 'Login failed!',
+      })
     }
   });
 

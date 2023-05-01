@@ -45,7 +45,7 @@ const Register = (props) => {
       // add swal alert for login.
       Swal.fire({
         icon: 'success',
-        title: 'Login success!',
+        title: 'Register success!',
         showConfirmButton: false,
         timer: 1500
       })
