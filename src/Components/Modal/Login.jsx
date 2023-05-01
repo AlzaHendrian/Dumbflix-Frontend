@@ -46,13 +46,15 @@ const Login = (props) => {
       });
 
       setAuthToken(response.data.data.token);
+      const alert = (
+        Swal.fire({
+          icon: 'success',
+          title: 'Login success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      )
       
-      Swal.fire({
-        icon: 'success',
-        title: 'Login success',
-        showConfirmButton: false,
-        timer: 1500
-      })
       // status check
       if (response.data.data.role === 'admin') {
         navigate('/admin-dashboard');
@@ -62,15 +64,17 @@ const Login = (props) => {
 
       console.log(response.data.data)
 
-      setMessage(<AlertSuccess message="Login Success" />);
+      setMessage(alert);
 
     } catch (err) {
-      setMessage(<AlertError message="Failed To Login" />);
-      Swal.fire({
-        icon: 'error',
-        title: 'Incorect email or password ...',
-        text: 'Login failed!',
-      })
+      const alert = (
+        Swal.fire({
+          icon: 'error',
+          title: 'Incorect email or password ...',
+          text: 'Login failed!',
+        })
+      )
+      setMessage(alert);
     }
   });
 
