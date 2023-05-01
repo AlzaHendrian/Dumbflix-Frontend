@@ -46,7 +46,13 @@ const Login = (props) => {
       });
 
       setAuthToken(response.data.data.token);
-
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Login success',
+        showConfirmButton: false,
+        timer: 1500
+      })
       // status check
       if (response.data.data.role === 'admin') {
         navigate('/admin-dashboard');
@@ -58,12 +64,6 @@ const Login = (props) => {
 
       setMessage(<AlertSuccess message="Login Success" />);
 
-      Swal.fire({
-        icon: 'success',
-        title: 'Login success',
-        showConfirmButton: false,
-        timer: 1500
-      })
     } catch (err) {
       setMessage(<AlertError message="Failed To Login" />);
       Swal.fire({
