@@ -11,6 +11,7 @@ const AdminAddMovie = () => {
   const [form, setForm] = useState({
     title: '',
     year: '',
+    link: '',
     thumbnail: '',
     category_id: '',
     description: '',
@@ -43,6 +44,7 @@ const AdminAddMovie = () => {
       formData.set('image', form.thumbnail[0], form.thumbnail[0].name);
       formData.set('title', form.title);
       formData.set('year', form.year);
+      formData.set('link', form.link)
       formData.set('desc', form.description);
       formData.set('category_id', form.category_id);
 
@@ -67,6 +69,7 @@ const AdminAddMovie = () => {
           <input onChange={handleOnChange} name="thumbnail" type="file" className="mb-3 border border-white rounded-md file:h-full bg-zinc-700 w-1/4" />
         </div>
         <input onChange={handleOnChange} value={form.year} name="year" type="text" className="mb-3 border border-white rounded-md py-1 px-3 bg-zinc-700 w-full" placeholder="Year" />
+        <input onChange={handleOnChange} value={form.link} name="link" type="text" className="mb-3 border border-white rounded-md py-1 px-3 bg-zinc-700 w-full" placeholder="Link Film" />
         <select onChange={handleOnChange} value={form.category_id} name="category_id" className="mb-3 border border-white rounded-md py-1 px-3 bg-zinc-700 w-full">
           <option className="hidden" value={'default'}>
             Category
