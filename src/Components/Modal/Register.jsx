@@ -3,6 +3,7 @@ import { useMutation } from 'react-query';
 import { API } from '../../Config/Api';
 import { AlertSuccess, AlertError } from './AlertCollection';
 import { ModalContext } from '../../Context/ModalContext';
+import Swal from 'sweetalert2';
 
 const Register = (props) => {
   const [message, setMessage] = useState(null);
@@ -41,9 +42,22 @@ const Register = (props) => {
         phone: '',
         address: '',
       });
+      // add swal alert for login.
+      Swal.fire({
+        icon: 'success',
+        title: 'Login success!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      // end
     } catch (err) {
       setMessage(<AlertError message="Failed to register!" />);
       console.log('register failed : ', err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed!',
+        text: 'register failed!',
+      })
     }
   });
 
