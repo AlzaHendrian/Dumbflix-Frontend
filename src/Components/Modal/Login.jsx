@@ -67,14 +67,15 @@ const Login = (props) => {
       setMessage(alert);
 
     } catch (err) {
-      const alert = (
-        Swal.fire({
-          icon: 'error',
-          title: 'Incorect email or password ...',
-          text: 'Login failed!',
-        })
-      )
-      setMessage(alert);
+      // const alert = (
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Incorect email or password ...',
+      //     text: 'Login failed!',
+      //   })
+      // )
+      // setMessage(alert);
+      setMessage(<AlertError message="Failed To Login" />);
     }
   });
 
