@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
 import { useMutation } from 'react-query';
 import { API } from '../../Config/Api';
+import Swal from 'sweetalert2';
 
 
 
@@ -16,7 +17,14 @@ const CardItem = (props) => {
   const handleOnDelete = useMutation (async (movieId) => {
     try {
       await API.delete(`/film/${movieId}`);
-      alert('delete success!')
+      // alert('delete success!')
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Delete Success!',
+        showConfirmButton: false,
+        timer: 1500
+    })
       navigate('/');
 
     }catch (err) {
