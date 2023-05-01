@@ -19,7 +19,6 @@ const CardItem = (props) => {
       await API.delete(`/film/${movieId}`);
       // alert('delete success!')
       Swal.fire({
-        position: 'center',
         icon: 'success',
         title: 'Delete Success!',
         showConfirmButton: false,
