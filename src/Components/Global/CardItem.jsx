@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const CardItem = (props) => {
   const [state] = useContext(UserContext)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   console.log("datacontext", state)
   console.log("ini props :",props)
 
@@ -24,7 +24,7 @@ const CardItem = (props) => {
         showConfirmButton: false,
         timer: 1500
     })
-      navigate('/');
+      navigate('/admin-dashboard');
 
     }catch (err) {
       console.log(err);
